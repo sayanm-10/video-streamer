@@ -7,15 +7,27 @@ class StreamCreate extends Component {
     // }
 
     // ! Even shortened syntax
-    renderInput({ input, label, meta }) {
-        console.log(meta);
+    renderInput = ({ input, label, meta }) => {
+        const error_classes = `field ${
+            meta.touched && meta.error ? "error" : ""
+        } `;
         return (
-            <div className="field">
+            <div className={error_classes}>
                 <label>{label}</label>
                 <input type="text" {...input} />
-                <div>{meta.error}</div>
+                {this.renderError(meta)}
             </div>
         );
+    };
+
+    renderError(meta) {
+        if (meta.touched && meta.error) {
+            return (
+                <div className="ui error message">
+                    <div className="header">{meta.error}</div>
+                </div>
+            );
+        }
     }
 
     onSubmit(formValues) {
@@ -26,7 +38,7 @@ class StreamCreate extends Component {
         return (
             <div>
                 <form
-                    className="ui form"
+                    className="ui form error"
                     onSubmit={this.props.handleSubmit(this.onSubmit)}
                 >
                     <Field
