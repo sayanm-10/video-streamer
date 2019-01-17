@@ -1,0 +1,14 @@
+{
+  "streams": [
+    {
+      "title": "Test stream",
+      "description": "My first stream to test",
+      "id": 1
+    },
+    {
+      "title": "next stream",
+      "description": "streams are working!!",
+      "id": 2
+    }
+  ]
+}
