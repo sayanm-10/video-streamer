@@ -7,11 +7,13 @@ class StreamCreate extends Component {
     // }
 
     // ! Even shortened syntax
-    renderInput({ input, label }) {
+    renderInput({ input, label, meta }) {
+        console.log(meta);
         return (
             <div className="field">
                 <label>{label}</label>
                 <input type="text" {...input} />
+                <div>{meta.error}</div>
             </div>
         );
     }
@@ -44,6 +46,21 @@ class StreamCreate extends Component {
     }
 }
 
+const validateForm = formValues => {
+    const errors = {}; // empty obj means form is OK
+
+    if (!formValues.title) {
+        errors.title = "Title is required.";
+    }
+
+    if (!formValues.description) {
+        errors.description = "Description is required.";
+    }
+
+    return errors;
+};
+
 export default reduxForm({
-    form: "streamCreate"
+    form: "streamCreate",
+    validate: validateForm
 })(StreamCreate);
