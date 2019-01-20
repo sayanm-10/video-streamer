@@ -1,3 +1,4 @@
+import history from "../history";
 import streams from "../apis/streams";
 import {
     SIGN_IN,
@@ -30,6 +31,9 @@ export const createStream = formValues => async (dispatch, getState) => {
         type: CREATE_STREAM,
         payload: response.data
     });
+
+    // Programmatically route to stream list
+    history.push("/");
 };
 
 export const fetchStreams = () => async dispatch => {
