@@ -1,0 +1,14 @@
+{
+    "name": "rtmp-server",
+    "version": "1.0.0",
+    "description": "An RTMP server to stream videos",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Sayan Mukherjee",
+    "license": "MIT",
+    "dependencies": {
+        "node-media-server": "^1.4.9"
+    }
+}
